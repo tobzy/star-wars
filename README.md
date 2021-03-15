@@ -3,7 +3,7 @@
 A Star Wars movies application that allows a user to select a star wars movie from a drop-down and view more details about that movie such the name, height and gender of the movie's characters, the opening crawl and the total number of characters. The user can sort the characters table by gender, height or name just be clicking on the table headers. A drop-down also allows filtering by gender.
 
 #### Demo
-A demo for this application can be found [here](https://festive-hermann-3dd25b.netlify.app/).
+A demo for this application can be found [here](http://dangerous-vest.surge.sh/).
 
 #### Tools:
 This project was generated with [Create React App](https://reactjs.org/docs/create-a-new-react-app.html)
@@ -12,7 +12,7 @@ This project was generated with [Create React App](https://reactjs.org/docs/crea
 - [React](https://reactjs.org/)
 - [React-Query](https://react-query.tanstack.com/) (For data fetching, caching and synchronization with the server)
 - [Swapi API](https://swapi.dev/) ( Star Wars Movies data )
-- [Netlify](https://netlify.com/)( for deployment )
+- [Surge](https://surge.sh/)( for deployment )
 
 
 

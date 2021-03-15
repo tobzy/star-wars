@@ -52,7 +52,7 @@ export function MovieDetails({selectedMovieUrl}) {
             characterRef.current[i] = React.createRef()
         });
         refetch();
-    }, [characters.length, characters,refetch]);
+    }, [characters.length]);
 
 
     const heightInInches = heightSum / 2.54;

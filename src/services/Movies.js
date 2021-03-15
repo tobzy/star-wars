@@ -24,7 +24,7 @@ export class MoviesService {
      */
     static async getMovie(selectedMovieUrl) {
         try {
-            const res = await fetch(`https://api.allorigins.win/get?url=${selectedMovieUrl}`, {
+            const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(selectedMovieUrl)}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ export class MoviesService {
      */
     static async getCharacterByUrl(url) {
         try {
-            const res = await fetch(`https://api.allorigins.win/get?url=${url}`, {
+            const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

@@ -3,24 +3,12 @@ import React, { useState, useEffect } from 'react';
 export function Sort({children, by, sortOrder, selectedGender}) {
     const [filteredCharacters, setFilteredCharacters] = useState([]);
 
-    const filterGender = () => {
-        if (selectedGender) {
-            let charactersNodesFilteredByGender = children.filter(characterNode => {
-                return characterNode.ref?.current?.children[1]?.innerText?.toLowerCase() === selectedGender
-            });
-
-            setFilteredCharacters(charactersNodesFilteredByGender);
-        } else {
-            setFilteredCharacters([])
-        }
-    };
-
     useEffect(() => {
         filterGender();
         if(selectedGender && !filteredCharacters.length){
             filterGender();
         }
-    }, [selectedGender,filteredCharacters.length,filterGender]);
+    }, [selectedGender,filteredCharacters.length]);
 
     const compare = (a, b) => {
 
@@ -46,6 +34,17 @@ export function Sort({children, by, sortOrder, selectedGender}) {
         return 0;
     };
 
+    const filterGender = () => {
+        if (selectedGender) {
+            let charactersNodesFilteredByGender = children.filter(characterNode => {
+                return characterNode.ref?.current?.children[1]?.innerText?.toLowerCase() === selectedGender
+            });
+
+            setFilteredCharacters(charactersNodesFilteredByGender);
+        } else {
+            setFilteredCharacters([])
+        }
+    };
 
 
     if (filteredCharacters.length) {
