@@ -24,19 +24,13 @@ export class MoviesService {
      */
     static async getMovie(selectedMovieUrl) {
         try {
-            const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(selectedMovieUrl)}`, {
+            const res = await fetch(`https://thingproxy.freeboard.io/fetch/${encodeURIComponent(selectedMovieUrl)}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
-            const {contents} = await res.json();
-            try {
-                return JSON.parse(contents)
-            }
-            catch (err) {
-                return {}
-            }
+            return await res.json();
 
         } catch (error) {
             throw new Error(error);
@@ -49,19 +43,13 @@ export class MoviesService {
      */
     static async getCharacterByUrl(url) {
         try {
-            const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`, {
+            const res = await fetch(`https://thingproxy.freeboard.io/fetch/${encodeURIComponent(url)}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
-            const {contents} = await res.json();
-            try {
-                return JSON.parse(contents)
-            }
-            catch (err) {
-                return {}
-            }
+            return await res.json();
 
         } catch (error) {
             throw new Error(error);
