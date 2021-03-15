@@ -80,7 +80,6 @@ export function MovieDetails({selectedMovieUrl}) {
                         <option value="">Filter Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
-                        <option value="hermaphrodite">Hermaphrodite</option>
                     </SelectDropdown>
                     <div className='table'>
                         <TableHeader>
