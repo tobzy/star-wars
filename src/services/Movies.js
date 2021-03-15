@@ -24,7 +24,7 @@ export class MoviesService {
      */
     static async getMovie(selectedMovieUrl) {
         try {
-            const res = await fetch(`https://thingproxy.freeboard.io/fetch/${encodeURIComponent(selectedMovieUrl)}`, {
+            const res = await fetch(addHttpsToLink(selectedMovieUrl), {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ export class MoviesService {
      */
     static async getCharacterByUrl(url) {
         try {
-            const res = await fetch(`https://thingproxy.freeboard.io/fetch/${encodeURIComponent(url)}`, {
+            const res = await fetch(addHttpsToLink(url), {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -58,3 +58,13 @@ export class MoviesService {
 
 }
 
+const addHttpsToLink = (link) => {
+    if (!link) return '';
+    // if link already starts with "https://", do nothing
+    if (/^https:\/\/.*$/.test(link)) { return link; }
+    // if unsecured "http://" already exists, take it out altogether
+    link = link.replace(/http:\/\//,'');
+    // prepend link with "https://"
+    link = `https://${link}`;
+    return link;
+};
