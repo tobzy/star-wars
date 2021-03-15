@@ -4,10 +4,10 @@ import { Loader } from "./Loader";
 import { useGetMovies } from "../hooks/useMovies";
 
 
-export function MovieSelect({selectedMovieId, setSelectedMovieId}) {
+export function MovieSelect({selectedMovieUrl, setSelectedMovieUrl}) {
     const {data: movies = [], isLoading: isLoadingMovies} = useGetMovies([]);
     const viewMovieDetails = async (event) => {
-        setSelectedMovieId(event.target.value);
+        setSelectedMovieUrl(event.target.value);
     };
 
     return (
@@ -20,10 +20,10 @@ export function MovieSelect({selectedMovieId, setSelectedMovieId}) {
                     <SelectLabel
                         htmlFor="select_movies">{isLoadingMovies ? 'Loading Movies' : 'Select a movie'}</SelectLabel>
                 </LabelWrapper>
-                <SelectDropdown value={selectedMovieId} onChange={viewMovieDetails}>
+                <SelectDropdown value={selectedMovieUrl} onChange={viewMovieDetails}>
                     <option value="">Select an option to view details</option>
                     {movies.sort((a, b) => b.release_date - a.release_date).map((movie, index) => {
-                        return <option value={movie.episode_id} key={index}>{movie.title}</option>
+                        return <option value={movie.url} key={index}>{movie.title}</option>
                     })}
                 </SelectDropdown>
             </SelectWrapper>

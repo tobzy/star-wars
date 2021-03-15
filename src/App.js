@@ -5,7 +5,7 @@ import { MovieSelect } from "./components/MoviesSelect";
 import { MovieDetails } from "./components/MoviesDetails";
 
 function App() {
-    const [selectedMovieId, setSelectedMovieId] = useState('');
+    const [selectedMovieUrl, setSelectedMovieUrl] = useState('');
 
     return (
         <AppWrapper>
@@ -14,8 +14,8 @@ function App() {
                     <img src={starWarsImage} width={300} alt={'Logo'}/>
                 </div>
             </AppHeader>
-            <MovieSelect setSelectedMovieId={setSelectedMovieId} selectedMovieId={selectedMovieId}/>
-            {selectedMovieId && <MovieDetails selectedMovieId={selectedMovieId}/>}
+            <MovieSelect setSelectedMovieUrl={setSelectedMovieUrl} selectedMovieUrl={selectedMovieUrl}/>
+            {selectedMovieUrl && <MovieDetails selectedMovieUrl={selectedMovieUrl}/>}
 
         </AppWrapper>
     );

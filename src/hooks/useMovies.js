@@ -10,11 +10,11 @@ export function useGetMovies() {
     return result;
 }
 
-export function useGetMovie(movieId) {
+export function useGetMovie(selectedMovieUrl) {
     const result = useQuery({
-        queryKey: [cacheKey.movie, movieId],
+        queryKey: [cacheKey.movie, selectedMovieUrl],
         queryFn: () => {
-            return MoviesService.getMovie(movieId)
+            return MoviesService.getMovie(selectedMovieUrl)
         }
     });
     return result;

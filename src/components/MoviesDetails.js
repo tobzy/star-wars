@@ -5,8 +5,8 @@ import { useGetMovie } from "../hooks/useMovies";
 import { MovieCharacterTableRow } from "./MovieCharacterTableRow";
 import { Sort } from "./Sort";
 
-export function MovieDetails({selectedMovieId}) {
-    const {data: movie, isLoading: isLoadingMovie, refetch} = useGetMovie(selectedMovieId);
+export function MovieDetails({selectedMovieUrl}) {
+    const {data: movie, isLoading: isLoadingMovie, refetch} = useGetMovie(selectedMovieUrl);
     const [selectedGender, setSelectedGender] = useState('');
     const [sortBy, setSortBy] = useState(null);
     const [sortOrder, setSortOrder] = useState('asc');
@@ -80,6 +80,7 @@ export function MovieDetails({selectedMovieId}) {
                         <option value="">Filter Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
+                        <option value="hermaphrodite">Hermaphrodite</option>
                     </SelectDropdown>
                     <div className='table'>
                         <TableHeader>
@@ -101,10 +102,10 @@ export function MovieDetails({selectedMovieId}) {
                                     ref={characterRef.current[index]}/>
                             ))}
                         </Sort>
-                        <TableHeader>
+                        <TableFooter>
                             <p>Total characters: {numberOfRows} </p>
                             {heightSum && <p>Sum of heights: {heightSum}cm ({heightInFeet}ft/{remainingInches})</p>}
-                        </TableHeader>
+                        </TableFooter>
                     </div>
                 </>
             ) : null}
@@ -132,7 +133,7 @@ const SelectDropdown = styled.select`
 
 const DetailsWrapper = styled.div`
   max-width: 991px;
-  padding: 50px 0;
+  padding: 50px 15px;
   margin:auto;
 `;
 
@@ -147,7 +148,7 @@ const TableHeader = styled.section`
   color: white;
   font-size: 14px;
   background: #1b1f22;
-  height: 50px;
+  min-height: 50px;
   text-align: left;
   align-items: center;
   & p {
@@ -159,6 +160,12 @@ const TableHeader = styled.section`
   }
   & p:first-child{
     padding-left: 25px;
+  }
+`;
+
+const TableFooter = styled(TableHeader)`
+  & p {
+    cursor:none;
   }
 `;
 

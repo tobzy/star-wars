@@ -22,9 +22,9 @@ export class MoviesService {
      * @description
      * Get movie by id.
      */
-    static async getMovie(movieId) {
+    static async getMovie(selectedMovieUrl) {
         try {
-            const res = await fetch(`https://api.allorigins.win/get?url=${MAIN_API}/films/${movieId}`, {
+            const res = await fetch(`https://api.allorigins.win/get?url=${selectedMovieUrl}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
