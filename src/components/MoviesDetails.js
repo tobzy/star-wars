@@ -36,6 +36,10 @@ export function MovieDetails({selectedMovieUrl}) {
     };
 
     useEffect(() => {
+        setSelectedGender('')
+    }, [selectedMovieUrl]);
+
+    useEffect(() => {
         setInterval(() => {
             const tableRows = document.getElementsByClassName('movieCharacter') || [];
             setNumberOfRows(tableRows?.length);
